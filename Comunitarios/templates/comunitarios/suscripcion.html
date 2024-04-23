@@ -1,0 +1,84 @@
+{% load static %}
+
+<!doctype html>
+<html lang="es" data-bs-theme="auto">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Comunitarios</title>
+    <link rel="icon" type="image/png" href="{% static 'images/ISOTIPO.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Comunitarios - Contactos</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+
+</head>
+
+<body>
+
+    <header data-bs-theme="dark">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color:#142f43;;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    <img src="{% static 'images/LogoAmarrillo.png' %}" alt="logo" width="230" height="50">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active " aria-current="page" href="{% url 'programas' %}">Programas </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'servicios' %}">servicios </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'contactos' %}">Contactos </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'images/f2.png' %}" alt="logo" >
+          <div class="container">
+            <div class="carousel-caption text-start">
+              <h2 class="textBanner">Plataforma filantrópica estratégica para afrontar desafíos</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <form method="POST">
+            {% csrf_token %}
+            <p>Suscríbete a nuestra comunidad y recibe noticias</p>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden">Email </label>
+                <input id="newsletter1" type="email" class="form-control" required placeholder="peru@gmail.com">
+                <button class="btn btn-primary" type="button">Subscribe</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
+<!--
+     <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}" class="form-label">Email </label>
+                            <input type="email" class="form-control" id="{{ form.email.id_for_label }}"
+                                name="{{ form.email.name }}" placeholder="{{ form.email.label }}"
+                                value="{{ form.email.value }}" required
+                            </div>
+  -->
